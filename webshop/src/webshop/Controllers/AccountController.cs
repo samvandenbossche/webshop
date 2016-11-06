@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using webshop.Models;
+using webshop.ViewModels;
 
 public class AccountController : Controller
 {
@@ -38,8 +39,9 @@ public class AccountController : Controller
             user.LastName = obj.LastName;
             user.Adress = obj.Adress;
             user.City = obj.City;
-            user.PostalCode = obj.Postalcode;
+            user.PostalCode = obj.PostalCode;
             user.Country = obj.Country;
+            user.PhoneNumber = obj.PhoneNumber;
 
             IdentityResult result = userManager.CreateAsync(user, obj.Password).Result;
 
@@ -64,6 +66,42 @@ public class AccountController : Controller
             }
         }
         return View(obj);
+    }
+
+
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Login(LoginViewModel obj)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = loginManager.PasswordSignInAsync
+            (obj.UserName, obj.Password,
+              obj.RememberMe, false).Result;
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            ModelState.AddModelError("", "Invalid login!");
+        }
+
+        return View(obj);
+    }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult LogOff()
+    {
+        loginManager.SignOutAsync().Wait();
+        return RedirectToAction("Login", "Account");
     }
 
 }

@@ -29,7 +29,7 @@ namespace webshop.Models
 
         public string Email { get; set; }
 
-        public virtual Customer User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public virtual List<OrderDetail> OrderDetail { get; set; }
 

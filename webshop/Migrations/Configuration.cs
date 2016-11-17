@@ -1,5 +1,6 @@
 namespace webshop.Migrations
 {
+    using Microsoft.AspNet.Identity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -28,7 +29,15 @@ namespace webshop.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Customers.AddOrUpdate(p => p.UserName, new Customer { UserName = "Sam", });
+            
+            var passwordHash = new PasswordHasher();
+            string defautlPassword = passwordHash.HashPassword("Password@123");
+            context.Users.AddOrUpdate(p => p.UserName, 
+                new ApplicationUser {
+                    UserName = "Sam",
+                    Email = "vdossche.sam@gmail.com",
+                    PasswordHash = defautlPassword
+                });
         }
     }
 }

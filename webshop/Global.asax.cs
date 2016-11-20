@@ -15,6 +15,10 @@ namespace webshop
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //BundleTable.Bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+            //            "~/Scripts/angular.js"));
+
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }

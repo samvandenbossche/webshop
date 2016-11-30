@@ -162,7 +162,6 @@ C:\Personal Documents\c#\webshop\webshop\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Personal Documents\c#\webshop\webshop\bin\Microsoft.Owin.Security.Google.xml
 C:\Personal Documents\c#\webshop\webshop\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Personal Documents\c#\webshop\webshop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.csprojResolveAssemblyReference.cache
 C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.Migrations.firstmodels.resources
 C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.csproj.GenerateResource.Cache
 C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.dll

@@ -26,6 +26,12 @@ namespace webshop
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
+                "~/Scripts/angular.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/webshop")
+                    .IncludeDirectory("~/Scripts/Controllers", "*.js")
+                    .Include("~/Scripts/webshop.js"));
         }
     }
 }

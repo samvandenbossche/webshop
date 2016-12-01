@@ -29,9 +29,11 @@ namespace webshop.Models
 
         public string Email { get; set; }
 
+        public decimal Total { get; set; }
+
         public virtual ApplicationUser User { get; set; }
 
-        public virtual List<OrderDetail> OrderDetail { get; set; }
+        public virtual List<OrderDetail> OrderDetails { get; set; }
 
     }
 }

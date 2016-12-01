@@ -9,6 +9,8 @@ namespace webshop.Models
     {
         public long ID { get; set; }
 
+        public string CartId { get; set; }
+
         public long ProductId { get; set; }
 
         public int Count { get; set; }

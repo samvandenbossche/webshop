@@ -1,9 +1,7 @@
-﻿
-        <a href='@Url.Action("Index", "Cart")'>
+﻿        <a href='@Url.Action("Index", "Cart")'>
             <strong>Cart</strong>
             <span id="cart-status" class="badge">
-                0
-                @*@ViewData["CartCount"]*@
+                @ViewData["CartCount"]
             </span>
         </a>
     

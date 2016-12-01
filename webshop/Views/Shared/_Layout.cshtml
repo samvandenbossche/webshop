@@ -24,23 +24,33 @@
                 </button>
 
                 @Html.ActionLink("SailAway", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @{Html.RenderAction("CartSummary", "Cart");}
+
             </div>
-           
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
                     @if (Request.IsAuthenticated && User.IsInRole("ShopAdmin"))
                     {
-                        <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                        <li>@Html.ActionLink("Category", "Index", "Categories")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop Managment <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Categories","Index","Categories")</li>
+                                <li class="divider"></li>
+                                <li> @Html.ActionLink("{{models.helloAngular}}", "Index", "Home")</li>
+                            </ul>
+                        </li>
                     }
-                    <li> @Html.ActionLink("{{models.helloAngular}}", "Index", "Home")</li>
+                </ul>                
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@{Html.RenderAction("CartSummary", "Cart");}</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
-
             </div>
         </div>
     </div>

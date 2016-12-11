@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "List of items in shop";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div ng-app="webshop" class="container">
+
+    <br />
+
+    <br />
+
+    <input type="text" placeholder="Search" ng-model="searchProducts" />
+
+    <br />
+
+    <div ng-controller="webshopController">
+
+        <table class="table">
+
+            <tr ng-repeat="p in products | filter : searchProducts">
+
+                <td>{{p.Name}}</td>
+
+                <td>{{p.Description}}</td>
+
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>

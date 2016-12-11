@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using webshop.Models;
 
 namespace webshop.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
-            return View();
+            var products = db.Products;
+            /*TODO: add order by dt created .*/
+            return View(products.ToList().OrderByDescending(p=>p.AddedToShop).Take(3));
         }
 
-        public ActionResult About()
+        public ActionResult Products()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "a summary of all our products";
 
             return View();
         }
@@ -26,5 +31,7 @@ namespace webshop.Controllers
 
             return View();
         }
+
+
     }
 }

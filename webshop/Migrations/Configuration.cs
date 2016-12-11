@@ -14,7 +14,7 @@ namespace webshop.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ApplicationDbContext context)
@@ -30,7 +30,6 @@ namespace webshop.Migrations
             
             string role = "ShopAdmin";
             string password = "Password@123";
-
             string userName = "vdbossche.sam@gmail.com";
 
             //Create Role  and User   

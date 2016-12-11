@@ -2,6 +2,7 @@
     $scope.models = {
         helloAngular: 'AngularJs added!'
     };
+    $scope.cartCount = $http.get('/Cart/GetPersons');;
 }
 
 // The $inject property of every controller 

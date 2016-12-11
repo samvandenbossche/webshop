@@ -19,6 +19,8 @@ namespace webshop.Models
         public string PictureUrl { get; set; }
 
         public long CategoryId { get; set; }
+
+        public DateTime AddedToShop { get; set; }
         
         /*virtual is used to enable lazy loading 
         

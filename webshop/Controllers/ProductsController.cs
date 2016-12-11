@@ -52,6 +52,7 @@ namespace webshop.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.AddedToShop = DateTime.Now;
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -118,6 +119,12 @@ namespace webshop.Controllers
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public JsonResult GetProducts()
+        {
+            var result = db.Products.ToList();
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
     }

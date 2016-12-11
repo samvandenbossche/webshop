@@ -23,8 +23,30 @@ namespace webshop.Controllers
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            ViewData["CartCount"] = cart.GetCount();
+            ViewData["CartCount"]
+                = cart.GetCount();
             return PartialView("_CartSummaryPartial");
         }
+
+        public ActionResult AddToCart(long productId)
+        {
+            var product = db.Products.Single(p => p.ID == productId);
+
+            // Add it to the shopping cart
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.AddToCart(product);
+
+            // Go back to the main store page for more shopping
+            return RedirectToAction("Index");
+        }
+
+        
+        public JsonResult CartCount()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            return Json(cart.GetCount(),JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

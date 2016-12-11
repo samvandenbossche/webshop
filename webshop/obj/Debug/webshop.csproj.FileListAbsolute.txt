@@ -167,3 +167,4 @@ C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.csproj.GenerateResour
 C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.dll
 C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.pdb
 C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.csprojResolveAssemblyReference.cache
+C:\Personal Documents\c#\webshop\webshop\obj\Debug\webshop.Migrations.Productdateadded.resources

@@ -19,10 +19,10 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            Category
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Category)
         </th>
 
         <th></th>
@@ -45,9 +45,9 @@
                 @Html.DisplayFor(modelItem => product.Category.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = product.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = product.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = product.ID })
+                @Html.ActionLink(" ", "Edit", new { id = product.ID }, new { @class = "glyphicon glyphicon-pencil" }) |
+                @Html.ActionLink(" ", "Details", new { id = product.ID }, new { @class = "glyphicon glyphicon-th-list" }) |
+                @Html.ActionLink(" ", "Delete", new { id = product.ID }, new { @class = "glyphicon glyphicon-remove" })
             </td>
         </tr>
     }

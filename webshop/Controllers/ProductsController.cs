@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -124,7 +125,22 @@ namespace webshop.Controllers
         public JsonResult GetProducts()
         {
             var result = db.Products.ToList();
-            return Json(result, JsonRequestBehavior.AllowGet);
+
+            
+
+            var list = JsonConvert.SerializeObject(new { products = result }, Formatting.None, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
+           
+            //dynamic collectionWrapper = new
+            //{
+
+            //    products = list
+
+            //};
+            return Json(list, JsonRequestBehavior.AllowGet);
+            // return JsonConvert.SerializeObject(collectionWrapper);
         }
 
     }

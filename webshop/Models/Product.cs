@@ -29,9 +29,9 @@ namespace webshop.Models
          the first time that a property referring to the entity/entities is accessed
          */
         
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
 
-        public virtual List<OrderDetail> OrderDetails { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
 
     }
 }

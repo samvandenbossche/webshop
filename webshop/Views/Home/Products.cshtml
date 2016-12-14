@@ -19,7 +19,7 @@
 
         <table class="table">
 
-            <tr ng-repeat="p in shopList.products">
+            <tr ng-repeat="p in shopList.products | filter:searchProducts">
 
                 <td>{{p.Name}}</td>
 

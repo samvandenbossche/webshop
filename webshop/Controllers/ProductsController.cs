@@ -126,21 +126,15 @@ namespace webshop.Controllers
         {
             var result = db.Products.ToList();
 
-            
+
 
             var list = JsonConvert.SerializeObject(new { products = result }, Formatting.None, new JsonSerializerSettings()
             {
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             });
-           
-            //dynamic collectionWrapper = new
-            //{
 
-            //    products = list
-
-            //};
             return Json(list, JsonRequestBehavior.AllowGet);
-            // return JsonConvert.SerializeObject(collectionWrapper);
+
         }
 
     }

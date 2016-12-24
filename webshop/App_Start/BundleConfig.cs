@@ -30,7 +30,6 @@ namespace webshop
                 "~/Scripts/angular.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/webshop")
-                    .IncludeDirectory("~/Scripts/Controllers", "*.js")
                     .Include("~/Scripts/webshop.js"));
         }
     }

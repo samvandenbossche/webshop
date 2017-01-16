@@ -4,52 +4,72 @@
     ViewBag.Title = "Product Details";
 }
 
-<h2>Product Details</h2>
 
-<div>
-    <h4>Viewing details for @Model.Name</h4>
-    <hr />
-    <div class="row">
-        
-        <img src="@Model.PictureUrl" alt="picture for @Model.Name" class="col-md-6" />
-        
-        <dl class="col-md4 dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Category.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Category.Name)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-        </dl>
+<div class="col-md-6">
+    <!----details-product-slider--->
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#etalage').etalage({
+                thumb_image_width: 250,
+                thumb_image_height: 250,
+                source_image_width: 900,
+                source_image_height: 1000,
+                show_hint: true,
+            });
+            // This is for the dropdown list example:
+            $('.dropdownlist').change(function () {
+                etalage_show($(this).find('option:selected').attr('class'));
+            });
+        });
+    </script>
+    <!----//details-product-slider--->
+    <div>
+        <div>
+            <ul id="etalage">
+                <li>
+                    <img class="etalage_thumb_image" src="@Model.PictureUrl" />
+                    <img class="etalage_source_image" src="@Model.PictureUrl" />
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
-<p>
-    @Html.ActionLink(" ", "Edit", new { id = Model.ID },new { @class = "glyphicon glyphicon-pencil" })
+<div class="col-md-6">
+    <div class="product-price-details">
+        <p class="text-right">
+            <h2>
+                @Html.DisplayFor(model => model.Name)
+            </h2>
+            @Html.DisplayFor(model => model.Description)
+        </p>
 
+        <div class="clearfix"> </div>
+        <div class="product-price-qty">
+            <div class="product-price">
+                <span>€ @Html.DisplayFor(model => model.Price)</span>
+            </div>
+            <div class="pro-qty">
+                <span>Qty:</span>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+        <div class="product-cart">
+            <div class="add-cart-btn">
+                <input type="button" value="Add to cart" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"> </div>
+@if (Request.IsAuthenticated && User.IsInRole("ShopAdmin"))
+{
     @Html.ActionLink("Back to List", "Index")
-</p>
+}

@@ -33,24 +33,5 @@ namespace webshop.Models
         
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("WebshopContext", throwIfV1Schema: false)
-        {
-        }
-
-        public static ApplicationDbContext Create()
-
-        {
-            return new ApplicationDbContext();
-        }
-
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        
-    }
+   
 }

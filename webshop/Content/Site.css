@@ -46,15 +46,34 @@ textarea {
     min-height: 600px;
 }
 
-    .frontpageItem img {
-        max-height: 400px;
-        position: absolute;
-    }
+.thumbnail-image {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
 
-    .frontpageItem .caption {
-        position: absolute;
-        bottom: 0px;
-    }
+.frontpageItem .caption {
+    bottom: 0px;
+}
+.caption-title{
+    height:70px
+}
+
+.caption-price{
+    float:left;
+}
+.caption-description {
+    height: 400px;
+    overflow:hidden;
+    float:right;
+    font-size:1em;
+}
+
+.caption-button{
+    margin-top: 35px;
+    height:50px;
+}
 
 /*----container----*/
 .container {
@@ -200,7 +219,7 @@ span.cart {
 }
 
 
-/*could be used when I want to make the items in the cart visible */
+/*could be used when I want to make the items in the cart visible as listitems */
 
 /*.cart-details li {
     position: relative;
@@ -340,7 +359,7 @@ nav {
     position: relative;
     float: left;
     width: 80%;
-    margin-left:11%;
+    margin-left: 11%;
 }
 
 .carousel-inner {
@@ -350,14 +369,227 @@ nav {
     margin: 0;
     margin-top: -46px;
 }
+
 .carousel-control.left, .carousel-control.right {
-  background: none !important;
-  filter: progid: none !important;
-  outline: 0;
- }
+    background: none !important;
+    filter: progid: none !important;
+    outline: 0;
+}
+
 .carousel .carousel-control {
-  visibility: hidden;
+    visibility: hidden;
 }
+
 .carousel:hover .carousel-control {
-  visibility: visible;
+    visibility: visible;
 }
+
+
+/*PRODUCTS PAGE */
+
+.products {
+    background: #FFF;
+    margin: 2em 15px 5em;
+    padding: 1.2em 1.5em;
+    margin: 1.5em 0;
+}
+
+.products-grid-container {
+    margin: 1.3em 0;
+}
+
+.products-grid {
+    border: 1px solid #E2E2E2;
+    padding: 0.5em 0.5em 1em 0.5em;
+    border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    -ms-border-radius: 0.3em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.products-grid {
+    margin: 0px 15px 15px 0;
+    width: 23.7%;
+}
+
+    .products-grid:hover {
+        border: 1px solid #FE3026;
+    }
+
+    .products-grid:nth-child(4), .products-grid:nth-child(8) {
+        margin-right: 0px;
+    }
+
+    .products-grid h4 {
+        width: 80%;
+        margin: 0 auto 0.5em;
+    }
+
+        .products-grid h4 a {
+            font-weight: 600;
+            color: #2E2E2E;
+            margin: 0 0 1em;
+            display: block;
+        }
+
+            .products-grid h4 a:hover {
+                text-decoration: none;
+                color: #FE3026;
+            }
+
+.product-link img {
+    width: 100%;
+    border-bottom: 1px solid #EEE;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.product-btn {
+    background: #FE2F18;
+    padding: 0.4em 1em;
+    color: #fff;
+    border-radius: 30em;
+    -webkit-border-radius: 30em;
+    -moz-border-radius: 30em;
+    -o-border-radius: 30em;
+    -ms-border-radius: 30em;
+    border: 1px solid #B64E30;
+    border-top: 2px solid #B64E30;
+    display: inline-block;
+}
+
+    .product-btn:hover {
+        text-decoration: none;
+        background: #5B5B5B;
+        border: 1px solid #5B5B5B;
+        border-top: 2px solid #5B5B5B;
+        color: #FFf;
+    }
+
+    .product-btn span {
+        padding-right: 0.3em;
+        margin-right: 0.3em;
+        border-right: 1px solid #888;
+        display: inline-block;
+    }
+
+    .product-btn label {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        background: url(../images/arrow.png) no-repeat 0px 0px;
+        vertical-align: middle;
+        margin-left: 0.2em;
+    }
+
+
+
+
+/*----product details page----*/
+.product-price-qty {
+    float: right;
+    margin: 1.2em 0;
+}
+
+    .product-price-qty span {
+        display: block;
+        color: #3E3E3E;
+        font-size: 1em;
+        font-style: italic;
+    }
+
+.product-price {
+    float: left;
+    margin-top: 21px;
+}
+
+    .product-price span {
+        white-space: nowrap;
+        position: relative;
+        margin: 0 5px 0 10px;
+        displaY: inline-block;
+        height: 25px;
+        border-radius: 0 5px 5px 0;
+        padding: 0 25px 0 15px;
+        background: #ef3326;
+        border: 0 solid #C7D2D4;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        line-height: 23px;
+        font-size: 1em;
+        color: white;
+    }
+
+        .product-price span:after {
+            position: absolute;
+            right: 0;
+            margin: 1px 7px;
+            font-weight: bold;
+            font-size: 19px;
+        }
+
+        .product-price span:before {
+            position: absolute;
+            background: #ef3326;
+            content: "\25CF";
+            color: white;
+            text-shadow: 0 0 1px #aaa;
+            font-size: 12px;
+            line-height: 13px;
+            text-indent: 6px;
+            top: 3px;
+            left: -10px;
+            width: 18px;
+            height: 18px;
+            transform: rotate(45deg);
+            border-left: 1px solid #C7D2D4;
+            border-bottom: 1px solid #C7D2D4;
+        }
+
+
+
+
+.pro-qty {
+    float: right;
+    margin-left: 10px;
+}
+
+    .pro-qty select {
+        width: 50px;
+    }
+
+
+.product-cart {
+    float: right;
+}
+
+.add-cart-btn input[type="button"] {
+    background: url(images/cart-icon.png) no-repeat 136px 13.5px #EF3326;
+    border: 1px solid #B64E30;
+    border-top: 2px solid #B64E30;
+    color: #FFF;
+    font-size: 1.2em;
+    outline: none;
+    padding: 0.42em 3em 0.5em 2em;
+    border-radius: 0.3em;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+    .add-cart-btn input[type="button"]:hover {
+        background: url(images/cart-icon.png) no-repeat 136px 13.5px #5B5B5B;
+        text-decoration: none;
+        border: 1px solid #5B5B5B;
+        border-top: 2px solid #5B5B5B;
+    }

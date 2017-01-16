@@ -4,10 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angularjs")
     @Scripts.Render("~/bundles/webshop")
+   
 
 </head>
 <body>
@@ -51,17 +54,11 @@
         <!----//top-header---->
         <!---top-header-nav---->
         <div class="navbar main-menu top-nav">
-
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <img src="~/Content/images/nav-icon.png" alt="nav icon" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" height="40" width="40"/>
             </div>
 
             <div class="navbar-collapse collapse">
-
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Products", "Products", "Home")</li>
@@ -75,8 +72,6 @@
                                 <li>@Html.ActionLink("Products", "Index", "Products")</li>
                                 <li class="divider"></li>
                                 <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                                <li class="divider"></li>
-                                <li> @Html.ActionLink("{{models.helloAngular}}", "Index", "Home")</li>
                             </ul>
                         </li>
                     }
@@ -84,7 +79,6 @@
             </div>
         </div>
     </div>
-
     <!--//top-header-nav---->
     <!---image slideshow---->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -142,8 +136,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+   
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

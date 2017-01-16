@@ -14,7 +14,7 @@ namespace webshop.Controllers
         public ActionResult Index()
         {
             var products = db.Products;
-            /*TODO: add order by dt created .*/
+            
             return View(products.ToList().OrderByDescending(p=>p.AddedToShop).Take(3));
         }
 
@@ -27,7 +27,7 @@ namespace webshop.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact page.";
 
             return View();
         }

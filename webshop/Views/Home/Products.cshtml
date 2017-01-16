@@ -1,35 +1,26 @@
-﻿@{
+﻿@model IEnumerable<webshop.Models.Product>
+
+@{
     ViewBag.Title = "List of items in shop";
 }
 
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+    <div ng-app="webshop">
+        <input type="text" placeholder="Search" ng-model="searchProducts" />
+        
+        <div class="products" ng-controller="webshopController">
+            <div class="products-grid-container">
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center" ng-repeat="p in shopList.products | filter:searchProducts">
+                    
+                    <a class="product-link" href="@Url.Action("details","Products")?id={{p.ID}}"><img src="{{p.PictureUrl}}" title="{{p.Name}}" /></a>
+                    <h4><a href="@Url.Action("details","Products")?id={{p.ID}}">{{p.Name}}</a></h4>
+                   
+                    <a  class="product-btn" href="@Url.Action("details","Products")?id={{p.ID}}">Take a Look</a>
+                   
+                </div>
+                <div class="clearfix"> </div>
+            </div>
 
-<div ng-app="webshop" class="container">
-
-    <br />
-
-    <br />
-
-    <input type="text" placeholder="Search" ng-model="searchProducts" />
-
-    <br />
-
-    <div ng-controller="webshopController">
-
-        <table class="table">
-
-            <tr ng-repeat="p in shopList.products | filter:searchProducts">
-
-                <td>{{p.Name}}</td>
-
-                <td>{{p.Description}}</td>
-
-
-            </tr>
-
-        </table>
-
+        </div>
     </div>
+ 
 
-</div>

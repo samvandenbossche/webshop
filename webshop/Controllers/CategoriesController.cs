@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 using webshop.Models;
 
-namespace MvcAffableBean.Controllers
+namespace webshop.Controllers
 {
     public class CategoriesController : Controller
     {

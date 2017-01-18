@@ -24,7 +24,7 @@ namespace webshop.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             ViewData["CartCount"] = cart.GetCount();
-            return PartialView("~/Views/ShoppingCart/_CartSummaryPartial.cshtml");
+            return PartialView("~/Views/Cart/_CartSummaryPartial.cshtml");
         }
 
         public ActionResult AddToCart(long productId)

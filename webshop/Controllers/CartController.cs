@@ -23,9 +23,8 @@ namespace webshop.Controllers
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            ViewData["CartCount"]
-                = cart.GetCount();
-            return PartialView("_CartSummaryPartial");
+            ViewData["CartCount"] = cart.GetCount();
+            return PartialView("~/Views/ShoppingCart/_CartSummaryPartial.cshtml");
         }
 
         public ActionResult AddToCart(long productId)
@@ -38,14 +37,15 @@ namespace webshop.Controllers
             cart.AddToCart(product);
 
             // Go back to the main store page for more shopping
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
-        
+
         public JsonResult CartCount()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
-            return Json(cart.GetCount(),JsonRequestBehavior.AllowGet);
+            return Json(cart.GetCount(), JsonRequestBehavior.AllowGet);
         }
 
     }

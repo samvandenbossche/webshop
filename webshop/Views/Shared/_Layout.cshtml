@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -32,19 +33,8 @@
                     </ul>
                 </div>
                 <div class="top-user-section">
-                    <div class="cart-details">
-                        <ul class="unstyled-list list-inline">
-                            <li>
-                                <span class="cart">
-                                    <p class="badge">
-                                        @*TODO: REPLACE FIXED COUNT WITH {{cartcount}}*@
-                                        3
-                                    </p>
-                                </span>
-
-                            </li>
-                        </ul>
-                    </div>
+                    @*@html.partial("_cartsummarypartial")*@
+                    @{Html.RenderAction("CartSummary", "Cart");}
                     @Html.Partial("_LoginPartial")
                     <div class="clearfix"> </div>
                 </div>
@@ -67,7 +57,7 @@
                     @if (Request.IsAuthenticated && User.IsInRole("ShopAdmin"))
                     {
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop Managment <b class="caret"></b></a>
+                            <a href="@Url.Action("Index", "Products")#" class="dropdown-toggle" data-toggle="dropdown">Shop Managment <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Products", "Index", "Products")</li>
                                 <li class="divider"></li>

@@ -239,6 +239,7 @@
     <Content Include="Content\images\cart-icon.png" />
     <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\email.png" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\mail-icon.png" />
     <Content Include="Content\images\nav-icon.png" />

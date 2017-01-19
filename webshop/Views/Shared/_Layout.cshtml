@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jquery")
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angularjs")
@@ -122,7 +123,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Sam Van den Bossche</p>
+            <p class="text-muted pull-left">&copy; @DateTime.Now.Year - Sam Van den Bossche</p>
         </footer>
     </div>
 

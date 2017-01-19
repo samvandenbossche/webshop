@@ -14,7 +14,7 @@ namespace webshop.Models
         public string Name { get; set; }
 
         [RegularExpression(@"^\d+.\d{0,2}$", ErrorMessage = "Has to be decimal with two decimal points")]
-        [Range(0, 9999.99, ErrorMessage = "The maximum possible price is 999.99")]
+        [Range(0, 9999.99, ErrorMessage = "The maximum possible price is 9999.99")]
         public decimal Price { get; set; }
         public string PictureUrl { get; set; }
 

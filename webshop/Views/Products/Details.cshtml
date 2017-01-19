@@ -10,16 +10,16 @@
     <script>
         jQuery(document).ready(function ($) {
             $('#etalage').etalage({
-                thumb_image_width: 250,
-                thumb_image_height: 250,
-                source_image_width: 900,
-                source_image_height: 1000,
+                thumb_image_width:300,
+                thumb_image_height:400,
+                source_image_width:900,
+                source_image_height:1200,
                 show_hint: true,
-            });
-            // This is for the dropdown list example:
-            $('.dropdownlist').change(function () {
-                etalage_show($(this).find('option:selected').attr('class'));
-            });
+                });
+        // This is for the dropdown list example:
+        $('.dropdownlist').change(function () {
+            etalage_show($(this).find('option:selected').attr('class'));
+        });
         });
     </script>
     <!----//details-product-slider--->
@@ -27,8 +27,14 @@
         <div>
             <ul id="etalage">
                 <li>
-                    <img class="etalage_thumb_image" src="@Model.PictureUrl" />
-                    <img class="etalage_source_image" src="@Model.PictureUrl" />
+                    <div class="thumbnail-image">
+                        <img class="etalage_thumb_image" src="@Model.PictureUrl" />
+                    </div>
+                    <div class="thumbnail-image hidden">
+                        <img class="etalage_source_image" src="@Model.PictureUrl" />
+                    </div>
+
+
                 </li>
             </ul>
         </div>

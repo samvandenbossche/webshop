@@ -69,7 +69,8 @@
         <div class="clearfix"> </div>
         <div class="product-cart">
             <div class="add-cart-btn">
-                <input type="button" value="Add to cart" />
+                @Html.ActionLink("Add to cart", "AddToCart", "Cart", new { productId = Model.ID }, new { @class = "product-btn" })
+                @*<input type="button" value="Add to cart" />*@
             </div>
         </div>
     </div>

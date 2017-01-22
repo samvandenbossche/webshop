@@ -3,13 +3,6 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
-@*<div class="jumbotron">
-        <h1>SailAway</h1>
-        <p class="lead">On this site you can find the best deals on sailing equipment. Everything you need just a few clicks away</p>
-        <p><a href="@Url.Action("Register", "Account","Register")" class="btn btn-primary btn-lg">Register Today</a></p>
-    </div>*@
-
 <div class="row">
     <h1>De laatste nieuwe producten in onze collectie!</h1>
     @foreach (var product in Model)
@@ -17,13 +10,12 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="thumbnail frontpageItem">
                 <div class="thumbnail-image">
-                    <img class="" alt="@product.Name" src="@product.PictureUrl" height="350" />
+                    <a href="@Url.Action("details", "Products")?id=@product.ID"><img class="" alt="@product.Name" src="@product.PictureUrl" height="350" /></a>
                 </div>
-
 
                 <div class="caption">
                     <div class="caption-title">
-                        <h3>@product.Name</h3>
+                        <a href="@Url.Action("details", "Products")?id=@product.ID"><h3>@product.Name</h3></a>
                     </div>
                     <div class="product-price caption-price">
                         <span>€@product.Price</span>
@@ -31,12 +23,10 @@
                     <div class="caption-description">
                         @product.Description
                     </div>
-                    <div class="clearfix"> </div>
-                    <div class="caption-button">
-                        @Html.ActionLink("Add to cart", "AddToCart", "Cart", new { productId = @product.ID }, new { @class = "btn btn-primary btn-md" })
-                    </div>
-
-
+                    @*<div class="clearfix"> </div>
+                        <div class="caption-button">
+                            @Html.ActionLink("Add to cart", "AddToCart", "Cart", new { productId = @product.ID }, new { @class = "btn btn-primary btn-md" })
+                        </div>*@
                 </div>
             </div>
         </div>

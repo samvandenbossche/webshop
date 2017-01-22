@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace webshop.Models
+namespace webshop.ViewModel
 {
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]

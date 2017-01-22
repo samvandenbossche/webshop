@@ -1,0 +1,52 @@
+﻿@model IEnumerable<webshop.Models.ApplicationUser>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Users</h2>
+
+    @Html.ActionLink("Manage User Role(s)", "ManageUserRoles", "Role")
+    <hr />
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+        </tr>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserName )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.PhoneNumber)
+                </td>
+            </tr>
+        }
+
+    </table>

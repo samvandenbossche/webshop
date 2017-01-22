@@ -42,10 +42,10 @@ namespace webshop.Controllers
         }
 
 
-        public JsonResult CartCount()
+        public JsonResult GetCartItems()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
-            return Json(cart.GetCount(), JsonRequestBehavior.AllowGet);
+            return Json(cart.GetCartItems(), JsonRequestBehavior.AllowGet);
         }
 
     }

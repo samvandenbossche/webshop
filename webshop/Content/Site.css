@@ -9,7 +9,6 @@
         -webkit-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
-        -ms-transition: 0.5s all;
         text-decoration: none;
     }
 /* Set padding to keep content from hitting the edges */
@@ -38,6 +37,10 @@ textarea {
     margin-bottom: 30px;
 }
 
+.productspageItem .thumbnail {
+    border: none;
+}
+
 /*Front page product thumbnails */
 .frontpageItem {
     width: 500px;
@@ -56,23 +59,25 @@ textarea {
 .frontpageItem .caption {
     bottom: 0px;
 }
-.caption-title{
-    height:70px
+
+.caption-title {
+    height: 70px;
 }
 
-.caption-price{
-    float:left;
+.caption-price {
+    float: left;
 }
+
 .caption-description {
     height: 350px;
-    overflow:hidden;
-    float:right;
-    font-size:1em;
+    overflow: hidden;
+    float: right;
+    font-size: 1em;
 }
 
-.caption-button{
+.caption-button {
     margin-top: 35px;
-    height:50px;
+    height: 50px;
 }
 
 /*----container----*/
@@ -135,8 +140,6 @@ textarea {
         border-radius: 0.3em;
         -webkit-border-radius: 0.3em;
         -moz-border-radius: 0.3em;
-        -o-border-radius: 0.3em;
-        -ms-border-radius: 0.3em;
         border: 1px solid #B64E30;
         border-top: 2px solid #B64E30;
         font-weight: 600;
@@ -164,8 +167,6 @@ textarea {
         border-radius: 0.3em;
         -webkit-border-radius: 0.3em;
         -moz-border-radius: 0.3em;
-        -o-border-radius: 0.3em;
-        -ms-border-radius: 0.3em;
         border: 1px solid #B64E30;
         border-top: 2px solid #B64E30;
         font-weight: 600;
@@ -185,8 +186,6 @@ textarea {
     border-radius: 0.3em;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
-    -o-border-radius: 0.5em;
-    -ms-border-radius: 0.5em;
 }
 
 
@@ -218,30 +217,6 @@ span.cart {
     margin-top: 18.5%;
 }
 
-
-/*could be used when I want to make the items in the cart visible as listitems */
-
-/*.cart-details li {
-    position: relative;
-}
-
-    .cart-details li:hover ul.cart-sub {
-        display: block;
-        position: absolute;
-        top: 55px;
-        left: 0px;
-    }
-
-ul.cart-sub {
-    display: none;
-    background: #FFF;
-    padding: 0.5em;
-}
-
-    ul.cart-sub li p {
-        color: #EF3626;
-    }*/
-
 /*Navigation*/
 .main-menu {
     border: 1px solid #E6E6EB;
@@ -249,7 +224,6 @@ ul.cart-sub {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(48%,#f7f7f7), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, #fefefe 0%,#f7f7f7 48%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(top, #fefefe 0%,#f7f7f7 48%,#f7f7f7 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #fefefe 0%,#f7f7f7 48%,#f7f7f7 100%); /* IE10+ */
     background: linear-gradient(to bottom, #fefefe 0%,#f7f7f7 48%,#f7f7f7 100%); /* W3C */
     padding: 0 0.2em;
     z-index: 999;
@@ -320,46 +294,11 @@ nav {
             text-decoration: none;
             color: #00A2C1;
         }
-/*main menu break manipulation*/
-@media (max-width: 830px) {
-    .navbar-header {
-        float: none;
-    }
 
-    .navbar-toggle {
-        display: block;
-    }
-
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-
-        .navbar-collapse.collapse {
-            display: none !important;
-        }
-
-    .navbar-nav {
-        float: none !important;
-        margin: 7.5px -15px;
-    }
-
-        .navbar-nav > li {
-            float: none;
-        }
-
-            .navbar-nav > li > a {
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-}
 
 /*homepage slider*/
 .carousel {
-   
-    
     width: 110%;
-    
 }
 
 .carousel-inner {
@@ -372,7 +311,7 @@ nav {
 
 .carousel-control.left, .carousel-control.right {
     background: none !important;
-    filter: progid: none !important;
+    filter: progid none !important;
     outline: 0;
 }
 
@@ -404,17 +343,14 @@ nav {
     border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
     -moz-border-radius: 0.3em;
-    -o-border-radius: 0.3em;
-    -ms-border-radius: 0.3em;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
 }
 
 .products-grid {
-    margin: 0px 15px 15px 0;
+    /*margin: 0px 15px 15px 0;*/
     width: 23.7%;
 }
 
@@ -445,6 +381,7 @@ nav {
 
 .product-link img {
     width: 100%;
+    height: 100%;
     border-bottom: 1px solid #EEE;
     display: block;
     margin-bottom: 0.5em;
@@ -457,8 +394,6 @@ nav {
     border-radius: 30em;
     -webkit-border-radius: 30em;
     -moz-border-radius: 30em;
-    -o-border-radius: 30em;
-    -ms-border-radius: 30em;
     border: 1px solid #B64E30;
     border-top: 2px solid #B64E30;
     display: inline-block;
@@ -584,7 +519,6 @@ nav {
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
 }
 
     .add-cart-btn input[type="button"]:hover {
@@ -593,3 +527,61 @@ nav {
         border: 1px solid #5B5B5B;
         border-top: 2px solid #5B5B5B;
     }
+
+
+/*main menu break manipulation*/
+@media (max-width: 830px) {
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+        .navbar-collapse.collapse {
+            display: none !important;
+        }
+
+    .navbar-nav {
+        float: none !important;
+        margin: 7.5px -15px;
+    }
+
+        .navbar-nav > li {
+            float: none;
+        }
+
+            .navbar-nav > li > a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .container {
+        width: 80%;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+}

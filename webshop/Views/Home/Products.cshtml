@@ -9,16 +9,24 @@
 
     <div class="products" ng-controller="webshopController">
         <div class="products-grid-container">
-            <div class="col-md-3 col-sm-6 col-xs-12 text-center" ng-repeat="p in shopList.products | filter:searchProducts">
 
-                <a class="product-link" href="@Url.Action("details","Products")?id={{p.ID}}"><img src="{{p.PictureUrl}}" title="{{p.Name}}" /></a>
-                <h4><a href="@Url.Action("details","Products")?id={{p.ID}}">{{p.Name}}</a></h4>
-
-                <a class="product-btn" href="@Url.Action("details","Products")?id={{p.ID}}">Take a Look</a>
-
+            <div class="col-lg-3 col-sm-6 col-xs-12 text-center productspageItem" ng-repeat="p in shopList.products | filter:searchProducts">
+                <div class="thumbnail">
+                    <div class="thumbnail-image">
+                        <a class="product-link" href="@Url.Action("details","Products")?id={{p.ID}}"><img class="img-responsive" src="{{p.PictureUrl}}" title="{{p.Name}}" /></a>
+                    </div>
+                    <div class="caption">
+                        <div class="caption-title">
+                            <h4><a href="@Url.Action("details","Products")?id={{p.ID}}">{{p.Name}}</a></h4>
+                        </div>
+                        <a class="product-btn" href="@Url.Action("details","Products")?id={{p.ID}}">Take a Look</a>
+                    </div>
+                </div>
             </div>
             <div class="clearfix"> </div>
         </div>
+
+
 
     </div>
 </div>

@@ -422,9 +422,9 @@ nav {
         border: 1px solid #FE3026;
     }
 
-    .products-grid:nth-child(4), .products-grid:nth-child(8) {
+    /*.products-grid:nth-child(4), .products-grid:nth-child(8) {
         margin-right: 0px;
-    }
+    }*/
 
     .products-grid h4 {
         width: 80%;

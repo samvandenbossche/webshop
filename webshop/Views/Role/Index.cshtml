@@ -5,14 +5,18 @@
 
 <h2>Roles Listing </h2>
 
-@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Users", "UserList", "Account") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
 <hr />
 <div>
+    @if (TempData["ResultMessage"] != null)
+    {
+        <p class="text-warning">@TempData["ResultMessage"]</p>
+    }
     @foreach (var role in Model)
     {
         <p>
             <strong>@role.Name | </strong>
-            <span onclick="return confirm('Are you sure to delete?')"><a href="/Roles/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span> |
+            <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span> |
             @Html.ActionLink("Edit", "Edit", new { roleName = @role.Name })
         </p>
     }

@@ -3,7 +3,7 @@
 }
 
 <h2>Usermanagement</h2>
-@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+@Html.ActionLink("Users", "UserList", "Account") | @Html.ActionLink("Roles", "Index")  
 <hr />
 
 @if (ViewBag.ResultMessage != null)

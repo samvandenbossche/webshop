@@ -67,7 +67,7 @@ namespace webshop.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "ShopAdmin")]
-        public ActionResult Edit(Microsoft.AspNet.Identity.EntityFramework.IdentityRole role)
+        public ActionResult Edit(IdentityRole role)
         {
             try
             {
@@ -85,9 +85,25 @@ namespace webshop.Controllers
         [Authorize(Roles = "ShopAdmin")]
         public ActionResult Delete(string RoleName)
         {
-            var thisRole = context.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-            context.Roles.Remove(thisRole);
-            context.SaveChanges();
+
+            if (RoleName.ToLower() == "shopadmin")
+            {
+                TempData["ResultMessage"] = "The role ShopAdmin can not be deleted."; 
+            }
+            else
+            {
+                var role = context.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+
+                if (role.Users.Count == 0)
+                {
+                    context.Roles.Remove(role);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    TempData["ResultMessage"] = "This role is still in use and can not be deleted.";
+               }
+            }
             return RedirectToAction("Index");
         }
 

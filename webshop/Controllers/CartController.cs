@@ -48,5 +48,17 @@ namespace webshop.Controllers
             return Json(cart.GetCartItems(), JsonRequestBehavior.AllowGet);
         }
 
+        public int GetCartCount()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            return cart.GetCount();
+        }
+
+        public decimal getCartTotal()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            return cart.GetTotal();
+        }
+
     }
 }

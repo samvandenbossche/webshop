@@ -280,6 +280,9 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\App\controllers.js" />
+    <Content Include="Scripts\App\services.js" />
+    <Content Include="Scripts\App\webshop.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -1040,8 +1043,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\responsiveslides.min.js" />
-    <Content Include="Scripts\ShoppingCart.js" />
-    <Content Include="Scripts\webshop.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

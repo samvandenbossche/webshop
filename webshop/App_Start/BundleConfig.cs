@@ -31,7 +31,9 @@ namespace webshop
                  "~/Scripts/angular.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/webshop")
-                    .Include("~/Scripts/webshop.js",
+                    .Include("~/Scripts/App/webshop.js", 
+                    "~/Scripts/App/services.js",
+                    "~/Scripts/App/controllers.js",
                     "~/Scripts/jquery.etalage.min.js"));
 
         }

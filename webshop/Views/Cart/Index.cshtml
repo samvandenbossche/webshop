@@ -1,102 +1,76 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cart index page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div ng-controller="cartController">
 
-    <h1>Cart</h1>
+<div ng-controller="CartController">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- empty cart message -->
+                    
+                    <tr ng-hide="cart.CartCount > 0">
+                        <td class="tdCenter" colspan="4">
+                            Your cart is empty, Go do some shopping :-)
+                        </td>
+                    </tr>
 
-    <table class="table table-striped">
-        <thead>
-            <tr class="header">
-                <th>&nbsp;</th>
-                <th>Product</th>
-                <th>Description / SKU</th>
-                <th>Stock.</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Line Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in cartList">
-                <td>
-                    <button ng-click="cart.deleteItem($index)" class="btn">delete</button>
-                </td>
-                <td>
-                    <a href="/#/product/{{item.Product.Code}}/{{item.Product.Link}}">
-                        <img ng-src="{{item.Product.DefaultImage.Url}}" width="50" />
-                    </a>
-                </td>
-                <td>
-                    <b>{{item.Product.Name}}</b>
-                    <br />
-                    <small>REF: {{item.Product.Code}}</small>
-                </td>
-                <td>
-                    <span ng-show="item.ProductStockInfo != null && item.ProductStockInfo.AvailableStock > 0">In stock</span>
-                    <span ng-show="item.ProductStockInfo != null && item.ProductStockInfo.AvailableStock == 0">Not in stock</span>
-                </td>
-                <td>
-                    <price value="{{item.Product.Price}}" class="text-right"></price>
-                </td>
-                <td>
-                    <input type="number" class="input-mini text-center" ng-model="item.Quantity" ng-change="cart.changeQuantity($index,item)" ui-keypress="{ enter: 'cart.changeQuantity($index,item)'}" />
-                </td>
-                <td>
-                    <price value="{{item.GrandTotal}}" class="text-right"></price>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-striped">
-        <tr>
-            <td rowspan="6">
-                <div class="input-append">
-                    <input name="couponcode" type="text" placeholder="Any Coupon ?" />
-                    <button type="submit" class="btn">Apply</button>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-            <td>Order Subtotal :</td>
-            <td><price value="{{cart.GrossTotal}}" class="text-right"></price></td>
-        </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-            <td>EcoTax : </td>
-            <td><price value="{{cart.RecycleTotal}}" class="text-right"></price></td>
-        </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-            <td>Shipping :</td>
-            <td ng-show="cart.ShippingFee.Total > 0"><price value="{{cart.ShippingFee.Total}}" class="text-right"></price></td>
-            <td ng-show="cart.ShippingFee.Total == 0"><div class="text-right">Free</div></td>
-        </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-            <td>VAT : </td>
-            <td><price value="{{cart.GrandTaxTotal}}" class="text-right"></price></td>
-        </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-            <td>Grand Total :</td>
-            <td><h3><price value="{{cart.GrandTotalWithTax}}" class="text-right"></price></h3></td>
-        </tr>
-    </table>
-
-    <table class="table">
-        <tr>
-            <td>
-                <a class="linkback button" href="#">< continue <br />
-            </td>
-            <td>
-                <div class="text-right">
-                    <a href="/#/checkout" class="btn btn-success btn-large">Checkout >></a>
-                </div>
-            </td>
-        </tr>
-    </table>
+                    <tr ng-repeat="item in cart.data">
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                @*TODO: [MAYBE] add thumbnail image for products*@ 
+                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">{{item.Product.Name}}</a></h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                            <input type="number" class="form-control text-center" value="1">
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>€{{item.Product.Price}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>TODO:</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>€{{cart.CartTotal}}</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>Continue Shopping
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">
+                                Checkout <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

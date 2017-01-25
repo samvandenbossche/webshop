@@ -7,7 +7,7 @@
 <div>
     <input type="text" placeholder="Search" ng-model="searchProducts" />
 
-    <div class="products" ng-controller="webshopController">
+    <div class="products" ng-controller="ProductsController">
         <div class="products-grid-container">
 
             <div class="col-lg-3 col-sm-6 col-xs-12 text-center productspageItem" ng-repeat="p in shopList.products | filter:searchProducts">

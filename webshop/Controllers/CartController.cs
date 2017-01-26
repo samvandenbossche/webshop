@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,18 @@ namespace webshop.Controllers
 {
     public class CartController : Controller
     {
-
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Cart
         public ActionResult Index()
@@ -36,11 +48,27 @@ namespace webshop.Controllers
 
             cart.AddToCart(product);
 
-            // Go back to the main store page for more shopping
-            //return RedirectToAction("Index");
+            // Go back to the qfor more shopping
             return Redirect(Request.UrlReferrer.ToString());
         }
 
+        public void ChangeQuantity(long productId, int quantity)
+        {
+            var product = db.Products.Single(p => p.ID == productId);
+
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.ChangeQuantity(productId, quantity);
+
+        }
+
+        public void DeleteItem(long productId)
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.RemoveFromCart(productId);
+
+        }
 
         public JsonResult GetCartItems()
         {
@@ -59,6 +87,41 @@ namespace webshop.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
             return cart.GetTotal();
         }
+
+        public void ClearCart()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            cart.EmptyCart();
+        }
+
+
+        public void CreateOrder()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            
+                
+            ApplicationUser user = UserManager.FindByNameAsync(User.Identity.Name).Result;
+
+            /*TODO fill in this data*/
+            var order = new Order();
+            order.Adress = "";
+            order.City = "";
+            order.Country = "";
+            order.Email = "";
+            order.FirstName = "";
+            order.LastName = "";
+            order.PhoneNumber = "";
+
+            /*remove or modify User in Model*/
+            order.UserId = 1;
+            order.User = user;
+            order.PostalCode = "";
+
+
+            cart.CreateOrder(order);
+
+        }
+
 
     }
 }

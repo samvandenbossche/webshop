@@ -6,7 +6,7 @@ angular.module('webshop').controller('CartController', ['$scope', 'CartFactory',
 angular.module('webshop').controller('ProductsController', ['$scope', '$http', ProductsController]);
 
 function cartController($scope, CartFactory) {
-    loadCart($scope, CartFactory)
+    loadCart($scope, CartFactory);
 }
 
 function loadCart($scope, CartFactory) {
@@ -14,6 +14,34 @@ function loadCart($scope, CartFactory) {
         $scope.cart = data;
         getCartCount($scope, CartFactory);
         getCartTotal($scope, CartFactory);
+        $scope.cart.changeQuantity =
+            function (productId, quantity) {
+                if (quantity < 1) {
+                    quantity = 1;
+                }
+                CartFactory.changeQuantity(productId, quantity).then(function (response) {
+                    getCartTotal($scope, CartFactory);
+                }, function (error) { console.log(error) });
+            };
+        $scope.cart.deleteItem =
+            function (productId, item) {
+                CartFactory.deleteItem(productId).then(function (response) {
+
+                    var index = $scope.cart.data.indexOf(item);
+                    $scope.cart.data.splice(index, 1);
+                    getCartTotal($scope, CartFactory);
+                    getCartCount($scope, CartFactory);
+                }, function (error) { console.log(error) });
+            };
+        $scope.cart.clearCart =
+            function () {
+                CartFactory.clearCart().then(function (response) {
+                    $scope.cart.data = [];
+                    getCartTotal($scope, CartFactory);
+                    getCartCount($scope, CartFactory);
+                }, function (error) { console.log(error) });
+            };
+
     }, function (error) { console.log(error) });
 }
 

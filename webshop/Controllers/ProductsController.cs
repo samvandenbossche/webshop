@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNet.Identity.Owin;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,6 +15,8 @@ namespace webshop.Controllers
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+       
 
         // GET: Products
         public ActionResult Index()
@@ -125,9 +128,6 @@ namespace webshop.Controllers
         public JsonResult GetProducts()
         {
             var result = db.Products.ToList();
-
-
-
             var list = JsonConvert.SerializeObject(new { products = result }, Formatting.None, new JsonSerializerSettings()
             {
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

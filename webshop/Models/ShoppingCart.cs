@@ -56,30 +56,38 @@ namespace webshop.Models
             return cartItem.Count;
         }
 
-        public int RemoveFromCart(int id)
+        public void RemoveFromCart(long id)
         {
             // Get the cart
             var cartItem = storeDB.Carts.Single(
                 cart => cart.CartId == ShoppingCartId
                 && cart.ProductId == id);
 
-            int itemCount = 0;
-
             if (cartItem != null)
             {
-                if (cartItem.Count > 1)
-                {
-                    cartItem.Count--;
-                    itemCount = cartItem.Count;
-                }
-                else
-                {
-                    storeDB.Carts.Remove(cartItem);
-                }
+
+                storeDB.Carts.Remove(cartItem);
+
                 // Save changes
                 storeDB.SaveChanges();
             }
-            return itemCount;
+           
+        }
+
+        public void ChangeQuantity(long productId, int quantity)
+        {
+            // Get the matching cart and item instances
+            var cartItem = storeDB.Carts.SingleOrDefault(
+                c => c.CartId == ShoppingCartId
+                && c.ProductId == productId);
+
+            if (cartItem != null)
+            {
+                cartItem.Count = quantity;
+            }
+            // Save changes
+            storeDB.SaveChanges();
+
         }
 
         public void EmptyCart()

@@ -1,7 +1,7 @@
 # webshop
 a web shop written in asp.net mvc using entity framework, bootstrap, angular and c#
 
-This project was created too practice the used technologies.
+This project was created to practice the used technologies.
 
 # use this project yourself 
 I used a local SQL server so for you to use this project you have too find and replace the relevant connection settings.
